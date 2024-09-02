@@ -12,7 +12,7 @@ import os
 app = Flask(__name__)
 
 # Allow requests from your frontend domain
-CORS(app, resources={r"/api/*": {"origins": "https://invest-ten-nu.vercel.app/credentials"}})
+CORS(app, resources={r"/api/*": {"origins": "https://invest-ten-nu.vercel.app"}})
 
 def totp(key, time_step=30, digits=6, digest="sha1"):
     key = base64.b32decode(key.upper() + "=" * ((8 - len(key)) % 8))
