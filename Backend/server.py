@@ -10,7 +10,8 @@ from fyers_apiv3 import fyersModel
 import os
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "https://invest-cxy29lj1t-shivams-projects-747fd955.vercel.app/"}})
+
+CORS(app, resources={r"/api/*": {"origins": "https://invest-ten-nu.vercel.app", "methods": ["GET", "POST"], "allow_headers": ["Content-Type", "Authorization"]}})
 
 def totp(key, time_step=30, digits=6, digest="sha1"):
     key = base64.b32decode(key.upper() + "=" * ((8 - len(key)) % 8))
@@ -21,7 +22,6 @@ def totp(key, time_step=30, digits=6, digest="sha1"):
     return str(binary)[-digits:].zfill(digits)
 
 def save_credentials_to_file(credentials):
-    # Save all credentials to a file named access_token.txt
     file_path = os.path.join(os.path.dirname(__file__), "access_token.txt")
     with open(file_path, "w") as file:
         for key, value in credentials.items():
@@ -121,5 +121,5 @@ def get_credentials():
 
     return jsonify(credentials), 200
 
-if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=5000, debug=True)
+# if __name__ == "__main__":
+#     app.run(host='127.0.0.1', port=5000, debug=True)

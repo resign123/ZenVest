@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
 const CredentialsPage = () => {
   const [totpKey, setTotpKey] = useState('');
@@ -9,19 +9,19 @@ const CredentialsPage = () => {
   const [clientId, setClientId] = useState('');
   const [secretKey, setSecretKey] = useState('');
   const [message, setMessage] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage('');
-  
+
     if (!totpKey || !username || !pin || !clientId || !secretKey) {
       setMessage('Please fill in all fields');
       return;
     }
-  
+
     try {
-      const API_URL = 'https://invest-cxy29lj1t-shivams-projects-747fd955.vercel.app/';
+      const API_URL = 'https://invest-cxy29lj1t-shivams-projects-747fd955.vercel.app';
       const response = await axios.post(`${API_URL}/api/generate-token`, {
         totpKey,
         username,
@@ -29,10 +29,9 @@ const CredentialsPage = () => {
         clientId,
         secretKey,
       });
-  
+
       if (response.data.success) {
         setMessage(response.data.message || 'Login successful!');
-        // Redirect to the strategy page after a successful login
         navigate('/strategy');
       } else {
         setMessage(response.data.error || 'Login failed. Please try again.');
@@ -60,7 +59,7 @@ const CredentialsPage = () => {
             id="totpKey"
             value={totpKey}
             onChange={(e) => setTotpKey(e.target.value)}
-            placeholder='xxxxxxxxxxxxxx # totp_key (ex., "OMKRABCDCDVDFGECLWXK6OVB7T4DTKU5")'
+            placeholder='xxxxxxxxxxxxxx'
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
           />
         </div>
@@ -71,7 +70,7 @@ const CredentialsPage = () => {
             id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            placeholder='xxxxxxxxxxxxxx"  # Fyers Client ID (ex., "TK01248")'
+            placeholder='xxxxxxxxxxxxxx'
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
           />
         </div>
@@ -82,7 +81,7 @@ const CredentialsPage = () => {
             id="pin"
             value={pin}
             onChange={(e) => setPin(e.target.value)}
-            placeholder='xxxx  # four-digit PIN'
+            placeholder='xxxx'
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
           />
         </div>
@@ -93,7 +92,7 @@ const CredentialsPage = () => {
             id="clientId"
             value={clientId}
             onChange={(e) => setClientId(e.target.value)}
-            placeholder='xxxxxxxxxxxxxx"  # App ID of the created app (ex., "L9NY305RTW-100")'
+            placeholder='xxxxxxxxxxxxxx'
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
           />
         </div>
@@ -104,7 +103,7 @@ const CredentialsPage = () => {
             id="secretKey"
             value={secretKey}
             onChange={(e) => setSecretKey(e.target.value)}
-            placeholder='xxxxxxxxxxxxxx"  # Secret ID of the created app'
+            placeholder='xxxxxxxxxxxxxx'
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
           />
         </div>
