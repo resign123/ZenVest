@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.custom-search {
+    margin-right: 10rem;
+}
+
+.custom-hero {
+    line-height: 55px;
+}
+
+.card-line {
+    margin-bottom: 15px;
+    width: 50px;
+    height: 4px;
+    background-color: #f97316;
+}
+
+@media only screen and (max-width: 768px) {
+    .custom-process {
+        text-align: center;
+    }
+}
+
+
+/* Ensure images align with text and scale to appropriate size */
+.container {
+    max-width: 1200px; /* Adjust according to your layout */
+    margin: 0 auto; /* Center the container */
+    padding: 0 2rem; /* Add padding to avoid touching edges */
+}
+
+.container img {
+    width: 25%; /* Default size for most images */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure images are block elements */
+    margin: 1rem 0; /* Space above and below images */
+}
+
+.container img.original-size {
+    width: auto; /* Use original size for specific images */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.spacing-between-heading-image {
+    margin-top: 3rem; /* Adjust as needed */
+    margin-bottom: 3rem; /* Adjust as needed */
+}
+
+.image-spacing {
+    margin-bottom: 20px; /* Space below each image */
+}
+
+.equal-size {
+    width: 100%; /* Set width to fill container, adjust as needed */
+    height: 300px; /* Fixed height for uniform size */
+    object-fit: cover; /* Cover the area, maintaining aspect ratio */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container p,
+.container h1,
+.container h2 {
+    margin-left: 0; /* Remove left margin */
+    margin-right: 0; /* Remove right margin */
+    padding-left: 1rem; /* Indent text to match image alignment */
+    padding-right: 1rem; /* Ensure consistent padding */
+}
+
+.container h1,
+.container h2 {
+    margin-top: 2rem; /* Space above headings */
+    margin-bottom: 1rem; /* Space below headings */
+}
+
+.container p {
+    margin-bottom: 1.5rem; /* Space below paragraphs */
+}
+
+.bold-heading {
+    font-weight: bold;
+    font-size: 1.25rem; /* Slightly smaller font for sub-headings */
+    margin-bottom: 0.5rem; /* Space below sub-headings */
+}
+
+.numbered-list {
+    margin-left: 1rem; /* Align list items with text */
+    list-style-type: decimal; /* Use numbers for the list */
+    margin-bottom: 1.5rem; /* Space below the list */
+}
