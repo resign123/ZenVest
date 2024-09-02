@@ -21,7 +21,7 @@ const CredentialsPage = () => {
     }
 
     try {
-      const API_URL = 'https://invest-cxy29lj1t-shivams-projects-747fd955.vercel.app';
+      const API_URL = 'https://invest-cxy29lj1t-shivams-projects-747fd955.vercel.app/';
       const response = await axios.post(`${API_URL}/api/generate-token`, {
         totpKey,
         username,
