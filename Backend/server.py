@@ -11,7 +11,7 @@ import os
 
 app = Flask(__name__)
 
-CORS(app, resources={r"/api/*": {"origins": "https://invest-ten-nu.vercel.app", "methods": ["GET", "POST"], "allow_headers": ["Content-Type", "Authorization"]}})
+CORS(app, resources={r"/api/*": {"origins": "*", "methods": ["GET", "POST"], "allow_headers": ["Content-Type", "Authorization"]}})
 
 def totp(key, time_step=30, digits=6, digest="sha1"):
     key = base64.b32decode(key.upper() + "=" * ((8 - len(key)) % 8))
