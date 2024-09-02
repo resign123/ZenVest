@@ -13,6 +13,11 @@ app = Flask(__name__)
 
 CORS(app, resources={r"/*": {"origins": "*"}})
 
+@app.after_request
+def after_request(response):
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
+
 def totp(key, time_step=30, digits=6, digest="sha1"):
     key = base64.b32decode(key.upper() + "=" * ((8 - len(key)) % 8))
     counter = struct.pack(">Q", int(time.time() / time_step))
